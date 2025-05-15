@@ -45,27 +45,31 @@
         display: flex !important;
       }
     }
+    /* Custom style for BARANGAY TUMBOD text */
+    #sidebarTitle {
+      font-family: "Times New Roman", serif;
+      font-size: 15px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      text-align: center;
+      user-select: none;
+    }
   </style>
 </head>
 <body>
   <div class="flex min-h-screen flex-col md:flex-row">
     <!-- Sidebar -->
     <aside
-      class="bg-white w-full md:w-56 flex flex-row md:flex-col items-center md:items-start py-4 md:py-8 space-x-4 md:space-x-0 md:space-y-8 shadow-lg hidden md:flex"
+      class="bg-white w-full md:w-56 flex flex-col items-center py-4 md:py-8 space-y-8 shadow-lg hidden md:flex"
       id="sidebar"
       aria-label="Sidebar Navigation"
     >
-      <div class="flex items-center md:flex-col md:items-center space-x-3 md:space-x-0 md:space-y-2 px-4 md:px-0">
-        <img
-          alt="Barangay official seal with circular shape and colorful emblem"
-          class="w-10 h-10 md:w-14 md:h-14"
-          height="56"
-          src="https://storage.googleapis.com/a1aa/image/1ab51a88-3dd4-4877-9fe5-463e73672faf.jpg"
-          width="56"
-        />
-        <span class="text-lg font-semibold text-gray-800 hidden md:block">Dashboard</span>
+      <div class="w-full flex justify-center px-4 md:px-0">
+        <span id="sidebarTitle">BARANGAY TUMBOD</span>
       </div>
-      <nav class="flex-1 w-full px-4 md:px-6 space-x-2 md:space-x-0 md:space-y-3 flex md:flex-col overflow-x-auto md:overflow-visible" role="navigation" aria-label="Main Navigation">
+      <nav class="flex-1 w-full px-4 md:px-6 space-y-3 flex flex-col overflow-visible" role="navigation" aria-label="Main Navigation">
         <button
           class="w-full text-left text-gray-700 hover:bg-blue-600 hover:text-white rounded-md px-4 py-3 flex items-center space-x-3 font-medium transition whitespace-nowrap"
           id="addPatientBtn"
@@ -125,15 +129,15 @@
       </div>
     </aside>
     <!-- Main content -->
-    <main class="flex-1 p-6 md:p-10 max-w-5xl mx-auto w-full">
+    <main class="flex-1 p-6 md:p-10 max-w-5xl mx-auto w-full flex flex-col items-center">
       <h1
-        class="text-3xl font-extrabold text-center text-gray-900 mb-1"
+        class="text-3xl font-extrabold text-center text-gray-900 mb-1 max-w-full"
         id="pageTitle"
       >
         Barangay Tumbod e-Health Management System
       </h1>
       <p
-        class="text-sm text-center text-gray-600 mb-8"
+        class="text-sm text-center text-gray-600 mb-8 max-w-xl"
         id="pageSubtitle"
       >
         Dedicated to providing quality healthcare services through efficient digital management and community management.
@@ -141,7 +145,7 @@
 
       <!-- Login Section -->
       <section
-        class="max-w-md mx-auto bg-white rounded-xl shadow-lg p-8"
+        class="max-w-md w-full bg-white rounded-xl shadow-lg p-8"
         id="loginSection"
         role="region"
         aria-label="Login Section"
@@ -193,7 +197,7 @@
 
       <!-- Add New Patient Section -->
       <section
-        class="max-w-3xl mx-auto mt-8 bg-white rounded-lg shadow p-6 hidden"
+        class="max-w-3xl w-full mt-8 bg-white rounded-lg shadow p-6 hidden"
         id="addPatientSection"
         role="region"
         aria-label="Add New Patient Section"
@@ -239,7 +243,7 @@
 
       <!-- Schedule Appointment Section -->
       <section
-        class="max-w-3xl mx-auto mt-8 bg-white rounded-lg shadow p-6 hidden"
+        class="max-w-3xl w-full mt-8 bg-white rounded-lg shadow p-6 hidden"
         id="scheduleAppointmentSection"
         role="region"
         aria-label="Schedule Appointment Section"
@@ -279,6 +283,36 @@
               aria-required="true"
             />
           </div>
+          <div>
+            <label
+              class="block text-sm font-medium mb-1 text-gray-700"
+              for="appointmentTime"
+              >Time</label
+            >
+            <input
+              class="w-full border border-gray-400 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+              id="appointmentTime"
+              name="appointmentTime"
+              required
+              type="time"
+              aria-required="true"
+            />
+          </div>
+          <div>
+            <label
+              class="block text-sm font-medium mb-1 text-gray-700"
+              for="appointmentComplications"
+              >Complications / Notes</label
+            >
+            <textarea
+              class="w-full border border-gray-400 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition resize-y"
+              id="appointmentComplications"
+              name="appointmentComplications"
+              placeholder="Enter any complications or notes"
+              rows="2"
+              aria-label="Complications or notes"
+            ></textarea>
+          </div>
           <button
             class="bg-blue-600 text-white px-4 py-2 rounded text-sm font-semibold hover:bg-blue-700 transition"
             type="submit"
@@ -300,7 +334,7 @@
 
       <!-- View Health Records Section -->
       <section
-        class="max-w-3xl mx-auto mt-8 bg-white rounded-lg shadow p-6 hidden"
+        class="max-w-3xl w-full mt-8 bg-white rounded-lg shadow p-6 hidden"
         id="viewHealthRecordsSection"
         role="region"
         aria-label="View Health Records Section"
@@ -319,21 +353,30 @@
 
       <!-- Generate Reports Section -->
       <section
-        class="max-w-3xl mx-auto mt-8 bg-white rounded-lg shadow p-6 hidden"
+        class="max-w-3xl w-full mt-8 bg-white rounded-lg shadow p-6 hidden"
         id="generateReportsSection"
         role="region"
         aria-label="Generate Reports Section"
       >
         <h2 class="text-xl font-bold mb-4 text-center text-gray-800">Reports</h2>
-        <div class="space-y-2 text-gray-700 text-sm">
+        <div class="space-y-2 text-gray-700 text-sm mb-6">
           <p>Total Patients: <span id="reportTotalPatients">0</span></p>
           <p>Today's Appointments: <span id="reportTodaysAppointments">0</span></p>
+        </div>
+        <div
+          class="max-h-64 overflow-y-auto border border-gray-200 rounded p-3"
+          tabindex="0"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          <h3 class="font-semibold mb-2 text-gray-700">Appointment History:</h3>
+          <ul class="list-disc list-inside text-sm text-gray-600 scrollable" id="reportAppointmentHistory"></ul>
         </div>
       </section>
 
       <!-- Admin Section -->
       <section
-        class="max-w-3xl mx-auto mt-8 bg-white rounded-lg shadow p-6 hidden"
+        class="max-w-3xl w-full mt-8 bg-white rounded-lg shadow p-6 hidden"
         id="adminSection"
         role="region"
         aria-label="Admin Section"
@@ -486,8 +529,12 @@
       e.preventDefault();
       const patientName = appointmentPatientSelect.value;
       const appointmentDate = document.getElementById("appointmentDate").value;
-      if (patientName && appointmentDate) {
-        appointments.push({ patient: patientName, date: appointmentDate });
+      const appointmentTime = document.getElementById("appointmentTime").value;
+      const appointmentComplications = document.getElementById("appointmentComplications").value.trim();
+      if (patientName && appointmentDate && appointmentTime) {
+        // Combine date and time into a single Date object string
+        const dateTimeString = appointmentDate + "T" + appointmentTime;
+        appointments.push({ patient: patientName, datetime: dateTimeString, complications: appointmentComplications });
         updateAppointmentList();
         scheduleAppointmentForm.reset();
       }
@@ -504,13 +551,16 @@
     function updateAppointmentList() {
       appointmentList.innerHTML = "";
       appointments.forEach((app) => {
+        const dt = new Date(app.datetime);
+        const dateStr = dt.toLocaleDateString();
+        const timeStr = dt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         const li = document.createElement("li");
-        li.textContent = `${app.patient} - ${new Date(app.date).toLocaleDateString()}`;
+        li.textContent = `${app.patient} - ${dateStr} ${timeStr}`;
         appointmentList.appendChild(li);
       });
     }
 
-    // View Health Records (list patients and their appointments)
+    // View Health Records (list patients and their appointments with time)
     const healthRecordsList = document.getElementById("healthRecordsList");
     function updateHealthRecordsList() {
       healthRecordsList.innerHTML = "";
@@ -525,7 +575,12 @@
         const patientAppointments = appointments.filter((a) => a.patient === patient);
         let apptText =
           patientAppointments.length > 0
-            ? patientAppointments.map((a) => new Date(a.date).toLocaleDateString()).join(", ")
+            ? patientAppointments.map((a) => {
+                const dt = new Date(a.datetime);
+                const dateStr = dt.toLocaleDateString();
+                const timeStr = dt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                return `${dateStr} ${timeStr}`;
+              }).join(", ")
             : "No appointments";
         li.textContent = `${patient} - Appointments: ${apptText}`;
         healthRecordsList.appendChild(li);
@@ -535,11 +590,12 @@
     // Generate Reports
     const reportTotalPatients = document.getElementById("reportTotalPatients");
     const reportTodaysAppointments = document.getElementById("reportTodaysAppointments");
+    const reportAppointmentHistory = document.getElementById("reportAppointmentHistory");
     function updateReports() {
       reportTotalPatients.textContent = patients.length;
       const today = new Date();
       const todaysAppts = appointments.filter((a) => {
-        const d = new Date(a.date);
+        const d = new Date(a.datetime);
         return (
           d.getDate() === today.getDate() &&
           d.getMonth() === today.getMonth() &&
@@ -547,6 +603,23 @@
         );
       });
       reportTodaysAppointments.textContent = todaysAppts.length;
+
+      reportAppointmentHistory.innerHTML = "";
+      if (appointments.length === 0) {
+        const li = document.createElement("li");
+        li.textContent = "No appointment history available.";
+        reportAppointmentHistory.appendChild(li);
+        return;
+      }
+      appointments.forEach((app) => {
+        const dt = new Date(app.datetime);
+        const dateStr = dt.toLocaleDateString();
+        const timeStr = dt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>${app.patient}</strong> - ${dateStr} ${timeStr} <br/><em>Complications/Notes:</em> ${app.complications ? app.complications : "None"}`;
+        li.classList.add("mb-2");
+        reportAppointmentHistory.appendChild(li);
+      });
     }
 
     // Admin List
